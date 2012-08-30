@@ -22,11 +22,20 @@ public class Employee {
     private String cubeId;
 
     public Employee(String firstName, String lastName, String ssn) {
+        
+        //Validate firstName, lastName, ssn
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
     }
-
+    
+    public void employeeOrientation(String cubeID){
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle(cubeID);
+    }
+    
     // Assume this must be performed first
     private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
@@ -34,46 +43,22 @@ public class Employee {
 
     // Assume this is must be performed second
     private void meetDepartmentStaff() {
-        if(metWithHr) {
             metDeptStaff = true;
-        } else {
-            throw new IllegalStateException("Sorry, you cannot meet with "
-                    + "department staff until you have met with HR.");
-        }
     }
 
     // Assume this must be performed third
     private void reviewDeptPolicies() {
-        if(metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
-        } else {
-            throw new IllegalStateException("Sorry, you cannot review "
-                    + " department policies until you have first met with HR "
-                    + "and then with department staff.");
-        }
     }
 
     // Assume this must be performed 4th
     private void moveIntoCubicle(String cubeId) {
-        if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
+       //Validate input
             this.cubeId = cubeId;
             this.movedIn = true;
-        } else {
-            throw new IllegalStateException("Sorry, you cannot move in to a "
-                    + "cubicle until you have first met with HR "
-                    + "and then with department staff, and then reviewed"
-                    + "department policies.");
-        }
-
+        
     }
     
-    public void startNewJob(String cubeID){
-        meetWithHrForBenefitAndSalryInfo();
-        meetDepartmentStaff();
-        reviewDeptPolicies();
-        moveIntoCubicle(cubeID);
-    }
-
     public String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
