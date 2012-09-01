@@ -28,6 +28,41 @@ public class Employee {
         this.lastName = lastName;
         this.ssn = ssn;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        //validate firstName
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        //validate firstName
+        this.lastName = lastName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+   
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        //validate Social Security Number
+        this.ssn = ssn;
+    }
     
     public void employeeOrientation(String cubeID){
         meetWithHrForBenefitAndSalryInfo();
@@ -62,7 +97,7 @@ public class Employee {
     public String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
-            return "Orientation is complete";
+            return "Orientation is complete.";
         } else {
             return "Orientation in progress...";
         }
