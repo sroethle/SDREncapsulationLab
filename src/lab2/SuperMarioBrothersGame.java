@@ -6,29 +6,34 @@ package lab2;
  */
 public class SuperMarioBrothersGame {
     private int levelNumber=1;
+    private int numberOfLevels = 20;
     private int numberPoints=0;
-    private int startingNumLives=3;
-    private int remainingNumLives=startingNumLives;
+    MarioGameCharacter mario = new MarioGameCharacter();
+    GUI marioGUI = new GUI();
     
-    public SuperMarioBrothersGame(){
-        MarioGameCharacter mario = new MarioGameCharacter();
-        
-        
+   
+    public void runGame(){
+        while (levelNumber < 21 && mario.getRemainingNumLives() >= 0) {
+            SuperMarioBrothersLevel level1 =
+                    new SuperMarioBrothersLevel(50, 600, 5, 3);
+            //Code to play the game
+            //once the level is completed the code will 
+        }
+        endGame();
     }
     
     private void endGame() {
         //code to end the game here
     }
     
-    public void changeLevel(){
+    private void changeLevel(){
         levelNumber++;
     }
     
-    public void loseOneLife(){
-        remainingNumLives--;
-        if (remainingNumLives == 0) {
+    private void loseOneLife(){
+        mario.setRemainingNumLives(mario.getRemainingNumLives()-1);
+        if (mario.getRemainingNumLives() == 0) {
             endGame();
         }
-    } 
-    
+    }
 }
