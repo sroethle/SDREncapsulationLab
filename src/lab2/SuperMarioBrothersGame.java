@@ -8,14 +8,14 @@ public class SuperMarioBrothersGame {
     private int levelNumber=1;
     private int numberOfLevels = 20;
     private int numberPoints=0;
-    MarioGameCharacter mario = new MarioGameCharacter();
+    private MarioGameCharacter mario = new MarioGameCharacter();
+    private SuperMarioBrothersLevel level1;
     GUI marioGUI = new GUI();
     
    
     public void runGame(){
         while (levelNumber < 21 && mario.getRemainingNumLives() >= 0) {
-            SuperMarioBrothersLevel level1 =
-                    new SuperMarioBrothersLevel(50, 600, 5, 3);
+            level1 = new SuperMarioBrothersLevel(50, 600, 5, 3);
             //Code to play the game
             //once the level is completed the code will 
         }

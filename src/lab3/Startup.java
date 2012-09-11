@@ -16,6 +16,7 @@ public class Startup {
         // Don't worry if you don't understand this code. It
         // will be explained later.
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 (new MainGUI()).setVisible(true);
             }
